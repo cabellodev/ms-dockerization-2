@@ -1,6 +1,6 @@
 pipeline {
     agent any
-      environment {
+    environment {
         PATH = "/usr/local/bin:${env.PATH}"
     }
     stages {
@@ -21,6 +21,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    // Construye la imagen Docker
                     sh 'docker build -t ms-dockerization-2 .'
                 }
             }
@@ -28,15 +29,22 @@ pipeline {
         stage('Build Docker Container') {
             steps {
                 script {
-                    // Detener y eliminar el contenedor viejo si existe
+                    // Define el nombre del contenedor
                     def containerName = 'ms-dockerization-2'
+                    
+                    // Obtén el ID del contenedor en ejecución, si existe
                     def containerId = sh(script: "docker ps -q -f name=${containerName}", returnStdout: true).trim()
 
                     if (containerId) {
+                        echo "Contenedor en ejecución con ID: ${containerId}"
+                        // Detén y elimina el contenedor viejo si existe
                         sh "docker stop ${containerId}"
                         sh "docker rm ${containerId}"
+                    } else {
+                        echo "No se encontró ningún contenedor en ejecución con el nombre: ${containerName}"
                     }
 
+                    // Ejecuta el nuevo contenedor
                     sh 'docker run -d -p 50523:50600 --name ms-dockerization-2 ms-dockerization-2'
                 }
             }
