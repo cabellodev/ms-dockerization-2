@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>ms-response-2</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-response-2</name>
+	<version>0.0.1</version>
+	<name>ms-dockerization-2</name>
 	<description>Microservicio que procesa respuesta y la modifica </description>
 	<url/>
 	<licenses>
