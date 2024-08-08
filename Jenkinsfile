@@ -40,9 +40,7 @@ pipeline {
                         // Detén y elimina el contenedor viejo si existe
                         sh "docker stop ${containerId}"
                         sh "docker rm ${containerId}"
-                    } else {
-                        echo "No se encontró ningún contenedor en ejecución con el nombre: ${containerName}"
-                    }
+                    } 
 
                     // Ejecuta el nuevo contenedor
                     sh 'docker run -d -p 50523:50600 --name ms-dockerization-2 ms-dockerization-2'
