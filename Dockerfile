@@ -5,10 +5,11 @@ FROM openjdk:22-jdk
 WORKDIR /app
 
 # Copia el archivo JAR al contenedor
-COPY target/ms-dockerizacion-2-0.0.1.jar ms-dockerization-2.jar
+COPY ms-dockerization-2.jar /app/ms-dockerization-2.jar
 
 # Expone el puerto en el que la aplicación estará escuchando
 EXPOSE 50600
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "ms-dockerization-2.jar"]
+
