@@ -37,8 +37,7 @@ pipeline {
                         sh "docker rm ${containerId}"
                     }
 
-                    // Ejecutar el nuevo contenedor
-                    sh 'docker run -d -p 50523:50600 --name ms-dockerization ms-dockerization-2:latest'
+                    sh 'docker run -d -p 50523:50600 --name ms-dockerization-2 ms-dockerization-2'
                 }
             }
         }
