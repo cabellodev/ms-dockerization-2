@@ -5,7 +5,7 @@ FROM openjdk:22-jdk
 WORKDIR /app
 
 # Copia el archivo JAR de la aplicación al contenedor
-COPY target/ms-dockerizacion-2-0.0.1.jar ms-dockerization-2.jar
+COPY target/ms-response-2-0.0.1.jar ms-dockerization-2.jar
 
 # Expone el puerto en el que la aplicación estará escuchando
 EXPOSE 50600
