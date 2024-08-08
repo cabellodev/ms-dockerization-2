@@ -22,7 +22,7 @@ public class ResponseController{
 
     @GetMapping(value="/capture")
     public ResponseEntity<DtoMessage>get(){
-        System.out.println("Hola mundo");
+        System.out.println("Hola mundo afaf ");
         DtoMessage message = this.responseServiceImp.get();
         return ResponseEntity.ok(message);
     }
