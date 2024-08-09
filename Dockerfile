@@ -3,8 +3,6 @@ FROM openjdk:22-jdk
 
 # Configura el directorio de trabajo en el contenedor
 
-RUN apt-get update && \
-    apt-get install -y iputils-ping
     
 WORKDIR /app
 
